@@ -1,4 +1,4 @@
-GOOGLEMD5DATA
+MD5rpeort
       生物資訊檔案基本非常巨大為了方便分析所以使用較穩定的系統CentOS 7與確保檔案能與GOOGLE雲端方便傳輸所以使用Rclone使用完時會輸出一些確認資訊，藉由輸出資訊確認檔案是否有完成所JAVA架構的撰寫的軟體。
 
 calculator

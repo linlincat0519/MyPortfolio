@@ -1,0 +1,199 @@
+<!-- https://www.wibibi.com/info.php?tid=HTML_Table_colspan_%E5%B1%AC%E6%80%A7 -->
+<!DocType html>
+<html>
+	<head>
+	<meta charset="UTF-8">
+	<title>統計勝率結果</title>
+	<style> 
+	/* css3 */
+	/* 需至中架構 */
+	.center {
+                text-align: center;
+            }
+	/*勝利的標記 */
+	.WBtn{  
+		font-style:italic;
+		font-size:15px;
+		COLOR: #FFFFFF;
+		BACKGROUND: #339933; WIDTH: 40px;
+		HEIGHT: 25px; 
+	}
+	/*輸的的標記 */
+	.LBtn{
+		font-style:italic;
+		font-size:15px;
+		Color:rgb(238, 11, 11);
+		BACKGROUND: #ffffff;WIDTH:40px;
+		HEIGHT: 25px; 
+	}
+	/* 勝率統計表 */
+	*.word{
+		font-style: normal;
+		font-size:40px;
+		color:rgb(21, 197, 144) ;
+	}
+	/* 文明: */
+	*.rancenaceword{
+		font-style: italic;
+		font-size:25px;
+		color:blue;
+	}
+	/* 勝利與輸的文字 */
+	*.rancenace{
+		font-style: italic;
+		font-size:20px;
+		color:blue;
+	}
+	/* 勝利輸的文字修改 */
+	*.winandlose{
+		font-style: normal;
+		font-size:20px;
+		color:rgb(32, 212, 56);
+	}
+	body {
+        text-align: center;
+        }
+	/* https://developer.mozilla.org/zh-CN/docs/Web/CSS/position */
+	/*position: 元素會被移出正常文檔流，並不為元素預留空間，通過指定元素相對於最近的非static 定位祖先元素的偏移，來確定元素位置。絕對定位的元素可以設置外邊距（margins），且不會與其他邊距合併。 */
+	/* https://vimsky.com/zh-tw/examples/usage/css-overflow-x-property.html */
+	.resize-save { 
+		position: absolute; top: 0; right: 5px; bottom: 0; left: 0; padding: 16px; overflow-x: hidden; 
+	}
+	</style>
+	<!-- JAVAscript -->
+	<script >
+	entNumflage = false
+	calculatorNum = 0
+	function clearAll(){
+			calculatorNum = 0;
+			tempOper = "";
+			calculatorForm.outAns.value = "0"
+			enterNumFlag = true;
+		}
+		function numPlus() {
+                var p = document.getElementById('num');
+                p.innerHTML++;
+           }
+           function numreduce() {
+                var p = document.getElementById('num');
+                p.innerHTML--;
+           }
+           function numPlus2() {
+                var p = document.getElementById('num2');
+                p.innerHTML++;
+           }
+           function numreduce2() {
+                var p = document.getElementById('num2');
+                p.innerHTML--;
+           }
+	
+	</script>
+</head>
+<body>
+<center>
+	<!-- .resize-save -->
+<div class="resize-save">	
+	<table>
+	<tr>
+		<td colspan="3"><h1 class = word>勝率統計表</h1></td>
+	</tr>
+	<tr>
+		<!-- 間距 -->
+		<td style="width:200px;"><h2 class = rancenaceword>文明:</h2></td>
+		<td clasee = "center">
+			<h5 class = rancenace ><center>win</center></h5>
+			<p id="num" class = "winandlose" >0</p>
+			<input type="button" value="勝場+1" onclick="numPlus()" />
+			<input type="button" value="勝場-1" onclick="numreduce()" />
+		</td>
+		<td>
+			<h5 class = rancenace ><right>戰略方式:<input name = "outAns" type = "Text" value = " " class = "ansText"></right></h5>
+		
+		</td>
+		<td></td>
+	</tr>
+	<tr>
+		<td>
+			<select  name = "RaceName">
+				<optgroup  label="隨機文明"></optgroup>
+				<option label="今日隨機" value = "CN">今日隨機</option>
+				<optgroup  label="遠東文明">
+				<option label="中國" value = "CN">中國</option>
+				<option label="日本" value = "JP">日本</option>
+				<option label="蒙古" value = "MN">蒙古</option>
+				<option label="朝鮮" value = "KS">朝鮮</option>
+				<option label="越南" value = "VM">越南</option>
+				</option>
+				<optgroup label="中東文明">
+				<option label="拜占庭" value = "BY">拜占庭</option>
+				<option label="波斯" value = "PE">波斯</option>
+				<option label="薩拉森" value = "SA">薩拉森</option>
+				<option label="印度" value = "IN">印度</option>
+				<option label="柏柏" value = "BE">柏柏</option>
+				</option>
+				</option>
+				<optgroup label="西歐文明">
+				<option label="不列顛" value = "BR">不列顛</option>
+				<option label="凱爾特" value = "CE">凱爾特</option>
+				<option label="法蘭克" value = "FR">法蘭克</option>
+				<option label="西班牙" value = "SP">西班牙</option>
+				<option label="勃艮地" value = "BU">勃艮地</option>
+				</option>
+				<optgroup label="北歐文明">
+				<option label="哥德" value = "GO">哥德</option>
+				<option label="條頓" value = "TE">條頓</option>
+				<option label="維京" value = "VI">維京</option>
+				<option label="匈奴" value = "HU">匈奴</option>
+				</option>
+				<optgroup label="美洲文明">
+					<option label="阿茲特克" value = "AZ">阿茲特克</option>
+					<option label="瑪雅" value = "MA">瑪雅</option>
+					<option label="印加" value = "IN">印加</option>
+				</option>
+				<optgroup label="地中海文明">
+					<option label="義大利" value = "IT">義大利</option>
+					<option label="葡萄牙" value = "PO">葡萄牙</option>
+					<option label="拜占庭" value = "VI">拜占庭</option>
+					<option label="西班牙" value = "SP">西班牙</option>
+					<option label="西西里" value = "SI">西西里</option>
+				</option>
+				<optgroup label="東歐文明">
+					<option label="馬紮爾" value = "MA">馬紮爾</option>
+					<option label="斯拉夫" value = "SL">斯拉夫</option>
+					<option label="保加利亞" value = "BU">保加利亞</option>
+					<option label="立陶宛" value = "LI">立陶宛</option>
+				</option>
+				<optgroup label="非洲文明">
+					<option label="衣索匹亞" value = "ET">衣索匹亞</option>
+					<option label="馬利" value = "MA">馬利</option>
+				</option>
+				<optgroup label="東南亞文明">
+					<option label="緬甸" value = "BU">緬甸</option>
+					<option label="高棉" value = "KH">高棉</option>
+					<option label="馬來" value = "MA">馬來</option>
+					<option label="越南" value = "MA">越南</option>
+				</option>
+				<optgroup label="南亞文明">
+					<option label="印度" value = "IN">印度</option>
+				</option>
+				<optgroup label="中亞文明">
+					<option label="庫曼" value = "CU">庫曼</option>
+					<option label="韃靼" value = "TA">韃靼</option>
+				</option>
+			</select>	
+		</td>
+		<td>
+			<!-- 在中間 -->
+			<h5 class = rancenace ><center>lose</center></h5>
+			<p id="num2" class = "winandlose">0</p>
+			<input type="button" value="敗場+1" onclick="numPlus2()" />
+			<input type="button" value="敗場-1" onclick="numreduce2()" />
+		</td>
+		<td></td>
+	</tr>
+	</table>
+</div>
+
+</center>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>title</title>
+        <style>
+            /* CSS3 */
+            *{margin:0px;
+             padding:0px;
+            }
+            #menu{
+                margin:auto;
+            }
+            .main{
+               /* 選單*/ 
+            background-color:#080808;
+            color:whitesmoke;
+            font-family:微軟正黑體;
+            /* 位置 */
+            font-weight:bold;
+            font-size:20px;
+            cursor:pointer;
+            text-align:center;
+            height:40px;
+            line-height:40px;
+            width:100px;
+        }
+        .main:hover{
+            background-color:#fc0606;
+        }
+        .sub{
+            /* 下拉式內容 */
+            cursor:pointer;
+            background-color:#fc0606;
+            color:whitesmoke;
+            font-family:微軟正黑體;
+            text-align:center;
+            font-weight:bold;
+            width:100px;
+        }
+        .sub li{
+            list-style-type:none;
+            line-height:25px;
+        }
+        .item{
+            float:left;
+        }
+        </style>
+        <!-- JAVAscript -->
+        <script src="js/jquery-3.6.0.js"></script>
+        <script>
+           $(document).ready(function(){
+            var oldtext=['File','Database','Help']
+            var newtext=['檔案','數據','求救']
+            $(".sub").slideUp(0)
+            for(i=0;i<$(".main").length;i++){
+                $(".main:eq("+i+")").mouseover({id:i},function(e){
+                    n=e.data.id
+                    $(".main:eq("+n+")").text(newtext[n])
+                    $(".sub:eq("+n+")").slideToggle()
+                    $(".sub:not(:eq("+n+"))").slideUp()
+                })
+                $(".main").mouseout({id:i},function(e){
+                    n=e.data.id
+                   // $(".sub").slideUp(200)
+                    $(".main:eq("+n+")").text(oldtext[n])
+                })
+            }
+            $("#menu").css("width",$(".main").length*100)
+        })           
+            
+        </script>
+
+    </head>
+    <body>
+        <!-- HTML -->
+        <!-- 第一組 -->
+        <div id="menu">
+            <div class="item">
+            <div class = "main">File</div>
+            <div class="sub">
+                <ul>
+                    <li>Import VCF</li>
+                    <li>ExportVarint</li>
+                    <li>Import Annoation</li>
+                    <li>close</li>
+                </ul>
+            </div>
+            </div>
+            <!-- 第二組 -->
+            <div id="menu">
+            <div class="item">
+            <div class = "main">Database</div>
+            <div class="sub">
+                <ul>
+                    <li>Create Database</li>
+                    <li>Open Database</li>
+                </ul>
+            </div>
+            </div>
+            <!-- 第三組 -->
+            <div class="item">
+            <div class = "main">Help</div>
+            <div class="sub">
+                    <ul>
+                        <li>User Guide</li>
+                        <li>About</li>
+                    </ul>
+            </div>
+            </div>
+    </body>
+</html>
